@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="InputConflictView">
+        <attr name="editText" format="reference"/>
+        <attr name="listView" format="reference"/>
+        <attr name="panelView" format="reference"/>
+        <attr name="addView" format="reference"/>
+        <attr name="switchBtn" format="reference"/>
+    </declare-styleable>
+</resources>

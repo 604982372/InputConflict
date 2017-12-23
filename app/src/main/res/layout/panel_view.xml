@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/add_panel_ll"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/photo_picker_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/icon_albums"
+            android:gravity="center"
+            android:text="相册"
+            android:textColor="#929292"/>
+
+        <TextView
+            android:id="@+id/take_photo_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/icon_camera"
+            android:gravity="center"
+            android:text="拍照"
+            android:textColor="#929292"/>
+    </LinearLayout>
+</LinearLayout>
