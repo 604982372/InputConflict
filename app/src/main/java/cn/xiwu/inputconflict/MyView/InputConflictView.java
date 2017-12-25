@@ -43,25 +43,24 @@ public class InputConflictView extends LinearLayout {
     public InputConflictView(Context context) {
         super(context);
         this.mContext = context;
-        initVie(null);
+        init(null);
     }
-
-
+    
     public InputConflictView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.mContext = context;
-        initVie(attrs);
+        init(attrs);
     }
 
 
     public InputConflictView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.mContext = context;
-        initVie(attrs);
+        init(attrs);
 
     }
 
-    private void initVie(AttributeSet attrs) {
+    private void init(AttributeSet attrs) {
         //监听布局变化
         getViewTreeObserver().addOnGlobalLayoutListener(new KeyboardOnGlobalChangeListener());
         imm = (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -131,6 +130,7 @@ public class InputConflictView extends LinearLayout {
                         if (mIsKeyboardActive) { // 输入法打开状态下
                             if (mSwitchBtn.isSelected()) { // 打开表情
                                 mSwitchBtn.setBackgroundResource(R.drawable.icon_key);
+                                // 设置为不会调整大小，以便输入弹起时布局不会改变。若不设置此属性，输入法弹起时布局会闪一下
                                 ((Activity) mContext).getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
                                 InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
                                 imm.hideSoftInputFromWindow(mEditText.getApplicationWindowToken(), 0);
@@ -143,7 +143,8 @@ public class InputConflictView extends LinearLayout {
                                 ((Activity) mContext).getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
                                         | WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
                             }
-                        } else { //  输入法关闭状态下
+                        } else {
+                            //  输入法关闭状态下
                             if (mSwitchBtn.isSelected()) {
                                 mSwitchBtn.setBackgroundResource(R.drawable.icon_key);
                                 // 设置为不会调整大小，以便输入弹起时布局不会改变。若不设置此属性，输入法弹起时布局会闪一下
@@ -208,7 +209,7 @@ public class InputConflictView extends LinearLayout {
 
         @Override
         public void onGlobalLayout() {
-//            // 获取当前页面窗口的显示范围
+            // 获取当前页面窗口的显示范围
             getWindowVisibleDisplayFrame(mRect);
             int screenHeight = getScreenHeight();
             int keyboardHeight = screenHeight - mRect.bottom; // 输入法的高度
