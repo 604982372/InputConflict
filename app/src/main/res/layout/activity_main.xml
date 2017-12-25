@@ -16,13 +16,11 @@
         android:visibility="gone"
     />
 
-
     <cn.xiwu.inputconflict.MyView.InputConflictView
         android:id="@+id/keyboard_layout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:addView="@+id/add_view_ll"
         app:editText="@+id/chat_input_et"
         app:listView="@+id/lv_chatting"
         app:panelView="@+id/panel_view"
@@ -86,7 +84,6 @@
                     android:text="发送"
                     android:textColor="#fff"
                     android:visibility="gone"/>
-
                 <ImageButton
                     android:id="@+id/add_menu_btn"
                     android:layout_width="wrap_content"
@@ -99,21 +96,11 @@
                     android:gravity="center"/>
             </FrameLayout>
         </LinearLayout>
-        <FrameLayout
+        <include
+            android:id="@+id/panel_view"
+            layout="@layout/panel_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:id="@+id/add_view_ll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-            />
-            <include
-                android:id="@+id/panel_view"
-                layout="@layout/panel_view"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:visibility="gone"/>
-        </FrameLayout>
+            android:layout_height="200dp"
+            android:visibility="gone"/>
     </cn.xiwu.inputconflict.MyView.InputConflictView>
 </LinearLayout>
