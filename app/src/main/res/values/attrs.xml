@@ -4,7 +4,6 @@
         <attr name="editText" format="reference"/>
         <attr name="listView" format="reference"/>
         <attr name="panelView" format="reference"/>
-        <attr name="addView" format="reference"/>
         <attr name="switchBtn" format="reference"/>
     </declare-styleable>
 </resources>
